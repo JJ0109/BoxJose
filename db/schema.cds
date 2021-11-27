@@ -3,7 +3,7 @@ namespace slah.db;
 
 
 entity Box : managed {
-  key BoxUUID : UUID @odata.Type:'Edm.String';
+  key BoxUUID : UUID @odata.Type:'Edm.String' @Core.Computed;
   BoxID       : Integer @readonly default 0;
   BeginDateAusleihe      : Date;
   EndDateAusleihe        : Date;
@@ -14,7 +14,7 @@ entity Box : managed {
 };
 
 entity Geraete  : managed {
-  key GeraeteUUID   : UUID @odata.Type:'Edm.String';
+  key GeraeteUUID   : UUID @odata.Type:'Edm.String' @Core.Computed;
   GeraeteID         : Integer @Core.Computed;
   GeraeteStatus     : Association to GeraeteStatus;
   to_Geraetetyp        : Association to Geraetetyp;
