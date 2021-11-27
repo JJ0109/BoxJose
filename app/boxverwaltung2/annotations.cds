@@ -42,12 +42,12 @@ annotate BoxService.Box with @UI : {
    // { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.acceptBox',   Label  : '{i18n>AcceptBox}'   },
    // { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.rejectBox',   Label  : '{i18n>RejectBox}'   },
     //{ $Type  : 'UI.DataFieldForAction', Action : 'BoxService.deductDiscount', Label  : '{i18n>DeductDiscount}' },
-    { Value : BoxID               },
-    { Value : to_Patient_PatientID },
-    { Value : BeginDateAusleihe              },
-    { Value : EndDateAusleihe                },
-    { Value : Boxname            },
-    { $Type : 'UI.DataField', Value : BoxStatus_code, Criticality : BoxStatus.criticality }
+    { Value : BoxID, Label:'BoxID'               },
+    { Value : to_Patient_PatientID, Label:'Patient'  },
+    { Value : BeginDateAusleihe, Label:'Ausleihdatum'               },
+    { Value : EndDateAusleihe,  Label:'Rueckgabedatum'               },
+    { Value : Boxname ,Label:'Boxname'            },
+    { $Type : 'UI.DataField', Value : BoxStatus_code, Criticality : BoxStatus.criticality, Label:'Box Status'  }
   ],
   Facets : [{
     $Type  : 'UI.CollectionFacet',
@@ -64,7 +64,7 @@ annotate BoxService.Box with @UI : {
         $Type  : 'UI.ReferenceFacet',
         ID     : 'DateData',
         Target : '@UI.FieldGroup#DateData',
-        Label  : 'Dates'
+        Label  : 'Datum'
       }
       ]
   }, {  // booking list
@@ -73,19 +73,19 @@ annotate BoxService.Box with @UI : {
     Label  : 'Geraete'
   }],
   FieldGroup#BoxData : { Data : [
-    { Value : BoxID               },
-    { Value : to_Patient_PatientID },
-    { Value : Boxname            },
+    { Value : BoxID, Label:'BoxID'                },
+    { Value : to_Patient_PatientID, Label:'Patient'  },
+    { Value : Boxname , Label:'Boxname'            },
     {
       $Type       : 'UI.DataField',
       Value       : BoxStatus_code,
       Criticality : BoxStatus.criticality,
-      Label : 'Status' // label only necessary if differs from title of element
+      Label : 'Box Status' // label only necessary if differs from title of element
     }
   ]},
   FieldGroup #DateData : {Data : [
-    { $Type : 'UI.DataField', Value : BeginDateAusleihe },
-    { $Type : 'UI.DataField', Value : EndDateAusleihe }
+    { $Type : 'UI.DataField', Value : BeginDateAusleihe, Label:'Ausleihdatum'  },
+    { $Type : 'UI.DataField', Value : EndDateAusleihe, Label:'Rueckgabedatum'  }
   ]}
 };
 
@@ -113,9 +113,9 @@ annotate BoxService.Geraete with @UI : {
   SelectionFields : [],
   LineItem : [
     { Value : to_Geraetetyp.AnleitungURL,  Label : '  '},
-    { Value : GeraeteID,             Label : 'BookingNumber' },
-    { Value : to_Geraetetyp_GeraetetypID   },
-    { Value : GeraeteStatus_code     }
+    { Value : GeraeteID,             Label : 'GeraeteID' },
+    { Value : to_Geraetetyp_GeraetetypID , Label:'Geraetetyp'   },
+    { Value : GeraeteStatus_code, Label:'Geraete Status'      }
   ],
   Facets : [{
     $Type  : 'UI.CollectionFacet',
@@ -129,9 +129,9 @@ annotate BoxService.Geraete with @UI : {
     }]
   }, ],
   FieldGroup #GeraeteData : { Data : [
-    { Value : GeraeteID              },
-    { Value : to_Geraetetyp_GeraetetypID   },
-    { Value : GeraeteStatus_code     }
+    { Value : GeraeteID , Label:'GeraeteID'              },
+    { Value : to_Geraetetyp_GeraetetypID, Label:'Geraetetyp'    },
+    { Value : GeraeteStatus_code, Label:'Geraete Status'      }
   ]},
 };
 
