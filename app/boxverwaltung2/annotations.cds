@@ -8,8 +8,8 @@ using BoxService as service from 'boxverwaltungV2../../../home/user/projects/box
 annotate BoxService.Box with @UI : {
 
   Identification : [
-    //{ $Type  : 'UI.DataFieldForAction', Action : 'BoxService.acceptBox',   Label  : '{i18n>AcceptBox}'   },
-    //{ $Type  : 'UI.DataFieldForAction', Action : 'BoxService.rejectBox',   Label  : '{i18n>RejectBox}'   }
+    { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.acceptBox',   Label  : 'AcceptBox'   },
+    { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.rejectBox',   Label  : 'RejectBox'   }
     //{ $Type  : 'UI.DataFieldForAction', Action : 'BoxService.deductDiscount', Label  : '{i18n>DeductDiscount}' }
   ],
   HeaderInfo : {
@@ -39,8 +39,8 @@ annotate BoxService.Box with @UI : {
     BoxStatus_code
   ],
   LineItem : [
-   // { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.acceptBox',   Label  : '{i18n>AcceptBox}'   },
-   // { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.rejectBox',   Label  : '{i18n>RejectBox}'   },
+    { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.acceptBox',   Label  : 'AcceptBox'   },
+    { $Type  : 'UI.DataFieldForAction', Action : 'BoxService.rejectBox',   Label  : 'RejectBox'   },
     //{ $Type  : 'UI.DataFieldForAction', Action : 'BoxService.deductDiscount', Label  : '{i18n>DeductDiscount}' },
     { Value : BoxID, Label:'BoxID'               },
     { Value : to_Patient_PatientID, Label:'Patient'  },
